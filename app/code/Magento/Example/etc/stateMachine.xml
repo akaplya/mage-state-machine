@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<stateMachine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:StateMachine/etc/stateMachine.xsd">
+    <scenario name="magento:example:run">
+        <step xsi:type="Task" name="ExecuteStep1" next="ExecuteStep2">
+            <task xsi:type="MagentoRPC" method="PUT" url="/V1/example/step1"/>
+        </step>
+        <step xsi:type="Task" name="ExecuteStep2" next="ScenarioSuccessfullyCompleted">
+            <task xsi:type="MagentoRPC" method="PUT" url="/V1/example/step2"/>
+        </step>dd
+        <step name="ScenarioSuccessfullyCompleted" xsi:type="Success" />
+    </scenario>
+</stateMachine>

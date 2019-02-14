@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/states/state.xsd" />
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/rpc/abstractRPC.xsd" />
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/rpc/magentoRPC.xsd" />
+
+    <xs:complexType name="Task">
+        <xs:complexContent>
+            <xs:extension base="State">
+                <xs:annotation>
+                    <xs:documentation>
+                        Task state desc
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element name="task" type="RPC"/>
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

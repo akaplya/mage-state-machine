@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/namingConstraints.xsd" />
+    <xs:attributeGroup name="BaseState">
+        <xs:attribute name="name" type="StateName" use="required" />
+        <xs:attribute name="comment" type="xs:string" />
+        <xs:attribute name="inputPath" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>
+                    Input params
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="outputPath" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>
+                    Output params
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="next" type="StateName">
+            <xs:annotation>
+                <xs:documentation>
+                    Next state
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:complexType name="State">
+        <xs:attributeGroup ref="BaseState" />
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/namingConstraints.xsd" />
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/states/state.xsd" />
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/states/task.xsd" />
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/states/success.xsd" />
+    <xs:element name="stateMachine">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="scenario" type="Scenario">
+                    <xs:unique name="uniqueStepName">
+                        <xs:annotation>
+                            <xs:documentation>Step name MUST be unique in scenario</xs:documentation>
+                        </xs:annotation>
+                        <xs:selector xpath="step" />
+                        <xs:field xpath="@name" />
+                    </xs:unique>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="uniqueScenarioName">
+            <xs:annotation>
+                <xs:documentation>Scenario name MUST be unique in scenario</xs:documentation>
+            </xs:annotation>
+            <xs:selector xpath="scenario" />
+            <xs:field xpath="@name" />
+        </xs:unique>
+    </xs:element>
+    <xs:complexType name="Scenario">
+        <xs:annotation>
+            <xs:documentation>
+                Scenario definition, consist of Steps
+            </xs:documentation>
+        </xs:annotation>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="step" type="State"/>
+        </xs:choice>
+        <xs:attribute name="name" type="ScenarioName" use="required"/>
+    </xs:complexType>
+</xs:schema>
