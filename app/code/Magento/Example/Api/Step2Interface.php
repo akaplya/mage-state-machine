@@ -15,5 +15,5 @@ interface Step2Interface
      * @param \Magento\Example\Api\Data\ArgumentInterface[] $values
      * @return \Magento\Example\Api\Data\ArgumentInterface[]
      */
-    public function execute(array $values) : array;
+    public function execute(array $values = []) : array;
 }

@@ -9,7 +9,6 @@
     <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/namingConstraints.xsd" />
     <xs:attributeGroup name="BaseState">
         <xs:attribute name="name" type="StateName" use="required" />
-        <xs:attribute name="comment" type="xs:string" />
         <xs:attribute name="inputPath" type="xs:string">
             <xs:annotation>
                 <xs:documentation>

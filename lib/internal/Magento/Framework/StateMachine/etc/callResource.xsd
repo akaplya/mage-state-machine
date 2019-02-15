@@ -11,15 +11,15 @@
     <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/states/task.xsd" />
     <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/states/success.xsd" />
     <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/states/pass.xsd" />
-    <xs:element name="stateMachine">
+    <xs:element name="resources">Init
         <xs:complexType>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">
-                <xs:element name="scenario" type="Scenario">
-                    <xs:unique name="uniqueScenarioName">
+                <xs:element name="resource" type="Resource">
+                    <xs:unique name="uniqueResourceName">
                         <xs:annotation>
-                            <xs:documentation>scenario name MUST be unique</xs:documentation>
+                            <xs:documentation>Resource name to be used in scenario</xs:documentation>
                         </xs:annotation>
-                        <xs:selector xpath="scenario" />
+                        <xs:selector xpath="resource" />
                         <xs:field xpath="@name" />
                     </xs:unique>
                 </xs:element>
@@ -27,19 +27,19 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="Scenario">
+    <xs:complexType name="Resource">
         <xs:annotation>
             <xs:documentation>
                 Scenario
             </xs:documentation>
         </xs:annotation>
-        <xs:sequence minOccurs="2" maxOccurs="unbounded">
-            <xs:element name="step" type="State">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="call" type="Call">
                 <xs:unique name="uniqueStepName">
                     <xs:annotation>
-                        <xs:documentation>Step name MUST be unique in scenario</xs:documentation>
+                        <xs:documentation>###</xs:documentation>
                     </xs:annotation>
-                    <xs:selector xpath="step" />
+                    <xs:selector xpath="call" />
                     <xs:field xpath="@name" />
                 </xs:unique>
             </xs:element>

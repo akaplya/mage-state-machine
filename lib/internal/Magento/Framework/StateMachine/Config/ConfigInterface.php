@@ -14,6 +14,15 @@ namespace Magento\Framework\StateMachine\Config;
  */
 interface ConfigInterface
 {
+    /**
+     * @param string $scenarioName
+     * @return array
+     */
     public function getScenario(string $scenarioName) : array;
+
+    /**
+     * @param string $scenarioName
+     * @return array
+     */
     public function getScenarioSteps(string $scenarioName) : array;
 }

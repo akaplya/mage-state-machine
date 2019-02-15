@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: akaplya
- * Date: 2/13/19
- * Time: 4:30 PM
+ * Date: 2/15/19
+ * Time: 1:58 PM
  */
 
-namespace Magento\Framework\StateMachine\Config\Converter;
+namespace Magento\Framework\StateMachine\CallResource\Config\Converter;
 
 use Magento\Framework\Config\ConverterInterface;
 

@@ -21,8 +21,16 @@ class Step1 implements Step1Interface
      * @param \Magento\Example\Api\Data\ArgumentInterface[] $values
      * @return \Magento\Example\Api\Data\ArgumentInterface[]
      */
-    public function execute(array $values): array
+    public function execute(array $values = []): array
     {
-        return $values;
+        $result = [];
+        if (!empty($values)) {
+            foreach ($values as $value) {
+                $result[] = $values + 5;
+            }
+        } else {
+            $result = [1, 2, 3];
+        }
+        return $result;
     }
 }

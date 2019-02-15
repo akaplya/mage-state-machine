@@ -26,6 +26,16 @@
             <xs:maxLength value="128" />
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="ResourceName">
+        <xs:annotation>
+            <xs:documentation>
+                Validation for scenario name
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="128" />
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>
 
 
