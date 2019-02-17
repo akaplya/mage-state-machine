@@ -22,10 +22,12 @@ class Structure
      */
     private $objectManager;
 
+    /**
+     * @var array
+     */
     private static $stateMapping = [
         'Task' => \Magento\Framework\StateMachine\Config\Data\Task::class,
-        'Success' => \Magento\Framework\StateMachine\Config\Data\Success::class,
-        'Pass' => \Magento\Framework\StateMachine\Config\Data\Pass::class
+        'Success' => \Magento\Framework\StateMachine\Config\Data\Success::class
     ];
 
     public function __construct(

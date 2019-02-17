@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/routine/baseRoutine.xsd" />
+    <xs:complexType name="MagentoWebAPIRoutine">
+        <xs:complexContent>
+            <xs:extension base="BaseRoutine">
+                <xs:annotation>
+                    <xs:documentation>
+                        Task state desc
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:attribute name="method" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="GET"/>
+                            <xs:enumeration value="PUT"/>
+                            <xs:enumeration value="POST"/>
+                            <xs:enumeration value="DELETE"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="url" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

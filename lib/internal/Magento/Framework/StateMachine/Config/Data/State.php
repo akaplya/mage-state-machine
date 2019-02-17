@@ -8,18 +8,16 @@
 
 namespace Magento\Framework\StateMachine\Config\Data;
 
-
+/**
+ * Class State
+ * @package Magento\Framework\StateMachine\Config\Data
+ */
 class State
 {
     /**
      * @var string
      */
     private $name;
-
-    /**
-     * @var string
-     */
-    private $next;
 
     /**
      * @var string
@@ -35,17 +33,15 @@ class State
      * State constructor.
      * @param string $name
      * @param string $next
-     * @param string $inputPath
-     * @param string $outputPath
+     * @param string|null $inputPath
+     * @param string|null $outputPath
      */
     public function __construct(
         string $name,
-        string $next,
-        string $inputPath,
-        string $outputPath
+        string $inputPath = null,
+        string $outputPath = null
     ) {
         $this->name = $name;
-        $this->next = $next;
         $this->inputPath = $inputPath;
         $this->outputPath = $outputPath;
     }
@@ -61,15 +57,7 @@ class State
     /**
      * @return string
      */
-    public function getNext() : string
-    {
-        return $this->next;
-    }
-
-    /**
-     * @return string
-     */
-    public function getInputPath() : string
+    public function getInputPath() : ?string
     {
         return $this->inputPath;
     }
@@ -77,7 +65,7 @@ class State
     /**
      * @return string
      */
-    public function getOutputPath() : string
+    public function getOutputPath() : ?string
     {
         return $this->outputPath;
     }

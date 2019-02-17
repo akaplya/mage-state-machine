@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/namingConstraints.xsd" />
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/routine/baseRoutine.xsd" />
+    <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/routine/magentoWebAPIRoutine.xsd" />
+    <xs:element name="routines">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="routine" type="BaseRoutine">
+                    <xs:unique name="uniqueRoutineName">
+                        <xs:annotation>
+                            <xs:documentation>Check routines uniqnes</xs:documentation>
+                        </xs:annotation>
+                        <xs:selector xpath="routine" />
+                        <xs:field xpath="@name" />
+                    </xs:unique>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

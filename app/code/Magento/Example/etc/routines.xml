@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:StateMachine/etc/routines.xsd">
+    <routine xsi:type="MagentoWebAPIRoutine"
+            name="Magento:Example:Step1"
+            method="PUT"
+            url="http:/magento2sm.local/rest/V1/example/step1"
+    />
+    <routine xsi:type="MagentoWebAPIRoutine"
+             name="Magento:Example:Step2"
+             method="PUT"
+             url="http:/magento2sm.local/rest/V1/example/step2"
+    />
+</routines>

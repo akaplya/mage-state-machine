@@ -17,24 +17,46 @@ class Task extends State implements InvokableStateInterface
     /**
      * @var string
      */
-    private $resource;
+    private $routine;
+
+    /**
+     * @var string
+     */
+    private $next;
 
     /**
      * Task constructor.
      * @param string $name
      * @param string $next
-     * @param string $inputPath
-     * @param string $outputPath
-     * @param string $resource
+     * @param string $routine
+     * @param string|null $inputPath
+     * @param string|null $outputPath
      */
     public function __construct(
         string $name,
         string $next,
-        string $inputPath,
-        string $outputPath,
-        string $resource
+        string $routine,
+        string $inputPath = null,
+        string $outputPath = null
     ) {
-        parent::__construct($name, $next, $inputPath, $outputPath);
-        $this->resource = $resource;
+        parent::__construct($name, $inputPath, $outputPath);
+        $this->next = $next;
+        $this->routine = $routine;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNext() : string
+    {
+        return $this->next;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRoutine() : string
+    {
+        return $this->routine;
     }
 }

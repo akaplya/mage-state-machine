@@ -30,20 +30,13 @@ class Config implements ConfigInterface
 
     /**
      * @param string $scenarioName
-     * @return array
+     * @return Data\Scenario
      */
-    public function getScenario(string $scenarioName): array
+    public function getScenario(string $scenarioName) : Data\Scenario
+
     {
         return $this->data->get($scenarioName);
     }
 
-    /**
-     * @param string $scenarioName
-     * @return array
-     */
-    public function getScenarioSteps(string $scenarioName): array
-    {
-        $scenario = $this->data->get($scenarioName);
-        return $scenario['step'];
-    }
 }
+

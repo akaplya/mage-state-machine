@@ -6,13 +6,13 @@
  * Time: 1:56 PM
  */
 
-namespace Magento\Framework\StateMachine\CallResource\Config;
+namespace Magento\Framework\StateMachine\Routine\Config;
 
 use Magento\Framework\Config\DataInterface;
 
 /**
  * Class Config
- * @package Magento\Framework\StateMachine\CallResource\Config
+ * @package Magento\Framework\StateMachine\Routine\Config
  */
 class Config implements ConfigInterface
 {
@@ -30,11 +30,11 @@ class Config implements ConfigInterface
     }
 
     /**
-     * @param string $CallResourceName
+     * @param string $RoutineName
      * @return array
      */
-    public function getCallResource(string $CallResourceName): array
+    public function getRoutine(string $RoutineName): ?Data\BaseRoutine
     {
-        return $this->data->get($CallResourceName);
+        return $this->data->get($RoutineName);
     }
 }

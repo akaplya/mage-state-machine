@@ -6,7 +6,7 @@
  * Time: 1:58 PM
  */
 
-namespace Magento\Framework\StateMachine\CallResource\Config\Converter;
+namespace Magento\Framework\StateMachine\Routine\Config\Converter;
 
 use Magento\Framework\Config\ConverterInterface;
 

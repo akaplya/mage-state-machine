@@ -10,20 +10,21 @@
         <step xsi:type="Task" name="ExecuteStep1" next="ExecuteStep2"
               inputPath="params/foo"
               outputPath="params/bar"
-              resource="example:step:1"
-        >
-            <task xsi:type="MagentoRPC"
-                  method="PUT"
-                  url="http:/magento2sm.local/rest/V1/example/step1"
-            />
-        </step>
+              routine="example:step:1"
+        />
+            <!--<task xsi:type="MagentoRPC"-->
+                  <!--method="PUT"-->
+                  <!--url="http:/magento2sm.local/rest/V1/example/step1"-->
+            <!--/>-->
+        <!--</step>-->
         <step xsi:type="Task"
               name="ExecuteStep2"
               next="ScenarioSuccessfullyCompleted"
               inputPath="params/bar"
-        >
-            <task xsi:type="MagentoRPC" method="PUT" url="http:/magento2sm.local/rest/V1/example/step2"/>
-        </step>
+              routine="example:step:2"
+        />
+            <!--<task xsi:type="MagentoRPC" method="PUT" url="http:/magento2sm.local/rest/V1/example/step2"/>-->
+        <!--</step>-->
         <step name="ScenarioSuccessfullyCompleted" xsi:type="Success" outputPath="params"/>
     </scenario>
 </stateMachine>

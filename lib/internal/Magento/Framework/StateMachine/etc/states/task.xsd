@@ -16,10 +16,7 @@
                         Task state desc
                     </xs:documentation>
                 </xs:annotation>
-                <xs:attribute name="resource" type="ResourceName" />
-                <!--<xs:choice minOccurs="1" maxOccurs="1">-->
-                    <!--<xs:element name="task" type="RPC"/>-->
-                <!--</xs:choice>-->
+                <xs:attribute name="routine" type="RoutineName" />
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>

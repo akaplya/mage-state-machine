@@ -15,15 +15,15 @@
             </argument>
         </arguments>
     </type>
-    <preference for="Magento\Framework\StateMachine\Step\Invoker\Task\Http\ClientInterface" type="Magento\Framework\StateMachine\Step\Invoker\Task\Http\Client\Curl"/>
-    <preference for="Magento\Framework\StateMachine\Step\Invoker\Task\Http\ConverterInterface" type="Magento\Framework\StateMachine\Step\Invoker\Task\Http\JsonConverter"/>
-    <type name="Magento\Framework\StateMachine\Step\Invoker\Task">
-        <arguments>
-            <argument name="tasks" xsi:type="array">
-                <item name="MagentoRPC" xsi:type="string">Magento\Framework\StateMachine\Step\Invoker\Task\MagentoRPC</item>
-            </argument>
-        </arguments>
-    </type>
+    <!--<preference for="Magento\Framework\StateMachine\Step\Invoker\Task\Http\ClientInterface" type="Magento\Framework\StateMachine\Step\Invoker\Task\Http\Client\Curl"/>-->
+    <!--<preference for="Magento\Framework\StateMachine\Step\Invoker\Task\Http\ConverterInterface" type="Magento\Framework\StateMachine\Step\Invoker\Task\Http\JsonConverter"/>-->
+    <!--<type name="Magento\Framework\StateMachine\Step\Invoker\Task">-->
+        <!--<arguments>-->
+            <!--<argument name="tasks" xsi:type="array">-->
+                <!--<item name="MagentoRPC" xsi:type="string">Magento\Framework\StateMachine\Step\Invoker\Task\MagentoRPC</item>-->
+            <!--</argument>-->
+        <!--</arguments>-->
+    <!--</type>-->
 
     <!--StateMachine Configuration Settings-->
     <preference for="Magento\Framework\StateMachine\Config\ConfigInterface" type="Magento\Framework\StateMachine\Config\Config" />
@@ -35,7 +35,8 @@
     <virtualType name="Magento\Framework\StateMachine\Config\Data" type="Magento\Framework\Config\Data">
         <arguments>
             <argument name="reader" xsi:type="object">Magento\Framework\StateMachine\Config\Reader</argument>
-            <argument name="cacheId" xsi:type="string">Magento_Analytics_CacheId</argument>
+            <argument name="cacheId" xsi:type="string">SM</argument>
+            <argument name="serializer" xsi:type="object">Magento\Framework\StateMachine\Config\Data\Serializer</argument>
         </arguments>
     </virtualType>
     <virtualType name="Magento\Framework\StateMachine\Config\SchemaLocator" type="Magento\Framework\Config\SchemaLocator">
@@ -56,30 +57,31 @@
     </virtualType>
     <!-- -->
     <!--Resource Configuration Settings-->
-    <preference for="Magento\Framework\StateMachine\CallResource\Config\ConfigInterface" type="Magento\Framework\StateMachine\CallResource\Config\Config" />
-    <type name="Magento\Framework\StateMachine\Config\Config">
+    <preference for="Magento\Framework\StateMachine\Routine\Config\ConfigInterface" type="Magento\Framework\StateMachine\Routine\Config\Config" />
+    <type name="Magento\Framework\StateMachine\Routine\Config\Config">
         <arguments>
-            <argument name="data" xsi:type="object">Magento\Framework\StateMachine\CallResource\Config\Data</argument>
+            <argument name="data" xsi:type="object">Magento\Framework\StateMachine\Routine\Config\Data</argument>
         </arguments>
     </type>
-    <virtualType name="Magento\Framework\StateMachine\CallResource\Config\Data" type="Magento\Framework\Config\Data">
+    <virtualType name="Magento\Framework\StateMachine\Routine\Config\Data" type="Magento\Framework\Config\Data">
         <arguments>
-            <argument name="reader" xsi:type="object">Magento\Framework\StateMachine\CallResource\Config\Reader</argument>
-            <argument name="cacheId" xsi:type="string">Magento_Analytics_CacheId</argument>
+            <argument name="reader" xsi:type="object">Magento\Framework\StateMachine\Routine\Config\Reader</argument>
+            <argument name="cacheId" xsi:type="string">SMCR</argument>
+            <argument name="serializer" xsi:type="object">Magento\Framework\StateMachine\Config\Data\Serializer</argument>
         </arguments>
     </virtualType>
-    <virtualType name="Magento\Framework\StateMachine\CallResource\Config\SchemaLocator" type="Magento\Framework\Config\SchemaLocator">
+    <virtualType name="Magento\Framework\StateMachine\Routine\Config\SchemaLocator" type="Magento\Framework\Config\SchemaLocator">
         <arguments>
-            <argument name="realPath" xsi:type="string">urn:magento:framework:StateMachine/etc/callResource.xsd</argument>
+            <argument name="realPath" xsi:type="string">urn:magento:framework:StateMachine/etc/routines.xsd</argument>
         </arguments>
     </virtualType>
-    <virtualType name="Magento\Framework\StateMachine\CallResource\Config\Reader" type="Magento\Framework\Config\Reader\Filesystem">
+    <virtualType name="Magento\Framework\StateMachine\Routine\Config\Reader" type="Magento\Framework\Config\Reader\Filesystem">
         <arguments>
-            <argument name="converter" xsi:type="object">Magento\Framework\StateMachine\CallResource\Config\Converter</argument>
-            <argument name="schemaLocator" xsi:type="object">Magento\Framework\StateMachine\CallResource\Config\SchemaLocator</argument>
-            <argument name="fileName" xsi:type="string">callResource.xml</argument>
+            <argument name="converter" xsi:type="object">Magento\Framework\StateMachine\Routine\Config\Converter</argument>
+            <argument name="schemaLocator" xsi:type="object">Magento\Framework\StateMachine\Routine\Config\SchemaLocator</argument>
+            <argument name="fileName" xsi:type="string">routines.xml</argument>
             <argument name="idAttributes" xsi:type="array">
-                <item name="/resources/resource" xsi:type="string">name</item>
+                <item name="/routines/routine" xsi:type="string">name</item>
             </argument>
         </arguments>
     </virtualType>

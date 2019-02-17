@@ -18,11 +18,5 @@ interface ConfigInterface
      * @param string $scenarioName
      * @return array
      */
-    public function getScenario(string $scenarioName) : array;
-
-    /**
-     * @param string $scenarioName
-     * @return array
-     */
-    public function getScenarioSteps(string $scenarioName) : array;
+    public function getScenario(string $scenarioName) : ?Data\Scenario;
 }
