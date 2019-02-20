@@ -8,7 +8,15 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
     <xs:include schemaLocation="urn:magento:framework:StateMachine/etc/states/state.xsd" />
 
-    <xs:complexType name="Pass">
+    <xs:complexType name="filterDeclaration">
+        <xs:choice minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="filter" type="filterDeclaration"  minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="condition" type="conditionDeclaration" minOccurs="1" maxOccurs="unbounded" />
+        </xs:choice>
+        <xs:attribute name="glue" type="glueType" default="and" />
+    </xs:complexType>
+
+    <xs:complexType name="Choice">
         <xs:complexContent>
             <xs:extension base="State">
                 <xs:annotation>

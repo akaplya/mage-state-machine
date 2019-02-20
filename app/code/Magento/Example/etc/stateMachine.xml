@@ -17,6 +17,13 @@
                   <!--url="http:/magento2sm.local/rest/V1/example/step1"-->
             <!--/>-->
         <!--</step>-->
+        <step xsi:type="Choice"
+              name="ExecuteStep3"
+        >
+            <case >
+                <when value="param/foo" operator="equal" next="tttest" />
+            </case >
+        </step>
         <step xsi:type="Task"
               name="ExecuteStep2"
               next="ScenarioSuccessfullyCompleted"
